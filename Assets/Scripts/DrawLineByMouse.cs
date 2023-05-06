@@ -7,6 +7,7 @@ public class DrawLineByMouse : MonoBehaviour
 {
     private LineRenderer _lineRenderer;
     
+    
     private void Awake()
     {
         _lineRenderer = GetComponent<LineRenderer>();
@@ -17,7 +18,8 @@ public class DrawLineByMouse : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            Vector3 currentPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 currentPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //currentPosition.z = 0;
             Debug.Log(currentPosition);
             _lineRenderer.positionCount++;
             _lineRenderer.SetPosition(_lineRenderer.positionCount-1,currentPosition);
